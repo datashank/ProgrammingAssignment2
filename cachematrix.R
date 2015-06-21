@@ -1,4 +1,4 @@
-#makeCachMatrix creates the matrix and lists the set of functions
+# makeCachMatrix creates the matrix and lists the set of functions
 makeCacheMatrix <- function(x = matrix()) {
 #inv sets the matric to null
         inv <- NULL
@@ -15,21 +15,21 @@ makeCacheMatrix <- function(x = matrix()) {
              setinv = setinv,
              getinv = getinv)
 }
-## cacheSolve solves the inverse of the matrix using solve() function
+# cacheSolve solves the inverse of the matrix using solve function
 cacheSolve <- function(x, ...) {
-##checks if the inverse of matrix is available
+# checks if the inverse of matrix is available
         inv <- x$getinv()
-        ##checks if the matrix is null matrix, if the matrix is not a null matrix then it retrieves the inverse from cache
+        # checks if the matrix is null matrix, if the matrix is not a null matrix then it retrieves the inverse from cache
         if(!is.null(inv)) {
                 message("getting cached inverse matrix")
                 return(inv)
         }
-        ## if the inverse matrix doesnot exists, creates the inverse matrix
+        #  if the inverse matrix doesnot exists, creates the inverse matrix
         data <- x$getinv()
-        ## computes the inverse of the matrix using sovle function
+# computes the inverse of the matrix using sovle function
         inv <- solve(data)
-        ## sets the inverse matrix in cache
+        # sets the inverse matrix in cache
         x$setinv(inv)
-        ## returns the inverse matrix
+        # returns the inverse matrix
         return(inv)
 }
